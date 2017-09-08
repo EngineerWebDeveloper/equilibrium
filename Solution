@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Equilibrium
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Program pg = new Program();
+            int x=pg.equilibrium(new int[]{ 1,1,1,3});
+            Console.WriteLine(x);
+            Console.ReadLine();
+
+        }
+        public int equilibrium(int[] arr)
+        {
+            int sum1 = 0;
+            int sum2 = 0;
+            int index=-1;
+            for(int i = 0; i < arr.Length; i++)
+            {
+                sum1 += arr[i];
+                for (int j = arr.Length-1; i < j; j--) { 
+                    sum2 += arr[j];
+                
+                }
+                if (sum1 == sum2) index = i;
+                else sum2 = 0;
+            }
+            return index;
+
+        }
+    }
+}
